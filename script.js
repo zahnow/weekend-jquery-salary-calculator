@@ -5,7 +5,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('document ready');
     $('#add-employee-button').on('click', addEmployee);
-
+    $('')
     unitTests();    //Comment this line to disable unit tests
 }
 
@@ -24,6 +24,7 @@ function addEmployee() {
         annualSalary: $('#annual-salary-input').val()
     }
     employees.push(newEmployee);
+    updateEmployeeList();
 }
 
 
@@ -33,6 +34,7 @@ function removeEmployee() {
 
 
 function updateEmployeeList() {
+    $('#employee-table-body').empty();
     for (employee of employees) {
         console.log(employee.firstName);
         $('#employee-table-body').append(`
@@ -42,7 +44,7 @@ function updateEmployeeList() {
             <td>ID</td>
             <td>ASDF</td>
             <td>23000</td>
-            <td><button>Delete</button></td>
+            <td><button class="deleteButton">Delete</button></td>
         </tr>
         `);
     }
