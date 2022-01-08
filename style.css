@@ -20,3 +20,6 @@ thead {
     background-color: rgba(30, 30, 30, .12);
 }
 
+.highlight {
+    background-color: red;
+}

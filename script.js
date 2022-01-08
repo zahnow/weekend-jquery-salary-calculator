@@ -1,4 +1,5 @@
 let employees = [];
+const monthlyLimit = 20000;
 
 $(document).ready(onReady);
 
@@ -57,9 +58,19 @@ function updateEmployeeList() {
 
 function updateMonthlyCost() {
     $('#monthly-cost').text(calculateMonthlyCost());
+    checkMonthlyLimit();
 }
 
 function calculateMonthlyCost() {
+    TODO: Formatting and rounding off to two digits
     let annualCost = employees.reduce((prev, current) => prev += Number(current.annualSalary), 0);
     return annualCost / 12;
+}
+
+function checkMonthlyLimit() {
+    if(calculateMonthlyCost() > monthlyLimit) {
+        $('#monthly-cost').addClass('highlight');
+    } else {
+        $('#monthly-cost').removeClass('highlight');
+    }
 }
