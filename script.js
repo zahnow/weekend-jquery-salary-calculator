@@ -31,23 +31,25 @@ function addEmployee() {
 
 function removeEmployee(event) {
     console.log('delete button clicked');
+    console.log($(event.target).attr('data-index'));    //THIS WORKS
+    employees.splice($(event.target).attr('data-index'), 1)
     $(event.target).closest('tr').remove();
     //Need to remove from array
+    updateMonthlyCost();
 }
 
 
 function updateEmployeeList() {
     $('#employee-table-body').empty();
-    for (employee of employees) {
-        console.log(employee.firstName);
+    for (let i = 0; i < employees.length; i++) {
         $('#employee-table-body').append(`
         <tr>
-            <td>${employee.firstName}</td>
-            <td>${employee.lastName}</td>
-            <td>${employee.id}</td>
-            <td>${employee.title}</td>
-            <td>${employee.annualSalary}</td>
-            <td><button class="deleteButton">Delete</button></td>
+            <td>${employees[i].firstName}</td>
+            <td>${employees[i].lastName}</td>
+            <td>${employees[i].id}</td>
+            <td>${employees[i].title}</td>
+            <td>${employees[i].annualSalary}</td>
+            <td><button class="deleteButton" data-index="${[i]}">Delete</button></td>
         </tr>
         `);
     }
@@ -58,5 +60,6 @@ function updateMonthlyCost() {
 }
 
 function calculateMonthlyCost() {
-    return "$150,000";
+    let annualCost = employees.reduce((prev, current) => prev += Number(current.annualSalary), 0);
+    return annualCost / 12;
 }
