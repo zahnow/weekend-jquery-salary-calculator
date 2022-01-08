@@ -32,6 +32,7 @@ function addEmployee() {
 function removeEmployee(event) {
     console.log('delete button clicked');
     $(event.target).closest('tr').remove();
+    //Need to remove from array
 }
 
 
@@ -41,11 +42,11 @@ function updateEmployeeList() {
         console.log(employee.firstName);
         $('#employee-table-body').append(`
         <tr>
-            <td>NAME</td>
-            <td>NAME</td>
-            <td>ID</td>
-            <td>ASDF</td>
-            <td>23000</td>
+            <td>${employee.firstName}</td>
+            <td>${employee.lastName}</td>
+            <td>${employee.id}</td>
+            <td>${employee.title}</td>
+            <td>${employee.annualSalary}</td>
             <td><button class="deleteButton">Delete</button></td>
         </tr>
         `);
