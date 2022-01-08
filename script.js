@@ -5,7 +5,7 @@ $(document).ready(onReady);
 function onReady() {
     console.log('document ready');
     $('#add-employee-button').on('click', addEmployee);
-    $('')
+    $('#employee-table-body').on('click', ".deleteButton" ,attemptRemoveEmployee);
     unitTests();    //Comment this line to disable unit tests
 }
 
@@ -25,11 +25,13 @@ function addEmployee() {
     }
     employees.push(newEmployee);
     updateEmployeeList();
+    updateMonthlyCost();
 }
 
 
-function removeEmployee() {
-
+function attemptRemoveEmployee(event) {
+    console.log('delete button clicked');
+    $(event.target).closest('tr').remove();
 }
 
 
