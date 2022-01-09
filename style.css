@@ -39,7 +39,7 @@ button {
     font-family: 'Roboto Mono', monospace;
     border: var(--border-style);
     background-color: var(--primary);
-    width: 120px;
+    width: 186px;
     padding: .5rem;
     margin: .5rem;
 }
@@ -68,6 +68,10 @@ thead {
 
 th {
     padding: .5em;
+}
+
+td {
+    padding: 0 1em;
 }
 
 tbody tr:nth-child(even) {
@@ -108,7 +112,7 @@ header {
 
 .section p {
     text-align: center;
-    font-size: 36pt;
+    font-size: 24pt;
 }
 
 .right-align {
@@ -116,7 +120,8 @@ header {
 }
 
 .deleteButton {
-    padding: 0;
+    width: 120px;
+    padding: .25rem;
 }
 
 .highlight {
@@ -128,5 +133,8 @@ header {
     max-height: 220px;
 }
 
-#add-employee-section {
+@media screen and (max-width: 800px) {
+    .flex-section {
+        flex-direction: column;
+    }
 }

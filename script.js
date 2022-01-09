@@ -7,16 +7,13 @@ function onReady() {
     console.log('document ready');
     $('#add-employee-button').on('click', addEmployee);
     $('#employee-table-body').on('click', ".deleteButton" , removeEmployee);
-    unitTests();    //Comment this line to disable unit tests
+    //unitTests();    //Comment this line to disable unit tests
 }
 
 
 // addEmployee adds the employee to the employees array.
 // To display the users in the table, use updatEmployeeList.
 function addEmployee() {
-    // TODO: Could add some basic input validation
-    // TODO: Could clear form after submission
-
     const newEmployee = {
         firstName: $('#first-name-input').val(),
         lastName: $('#last-name-input').val(),
