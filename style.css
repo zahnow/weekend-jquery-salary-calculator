@@ -14,8 +14,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    width: 80%;
-    padding-left: 10%;
+    width: 90%;
+    padding-left: 5%;
     background-color: var(--background);
 }
 
@@ -74,10 +74,6 @@ tbody tr:nth-child(even) {
     background-color: var(--primary-light);
 }
 
-.deleteButton {
-    padding: 0;
-}
-
 header {
     text-align: center;
 }
@@ -86,13 +82,16 @@ header {
     background-color: white;
     border: var(--border-style);
     padding: 1rem;
-    margin: 1rem 0;
+    margin: 1rem;
 }
 
 .flex-section {
     display: flex;
+    justify-content: space-between;
+}
+
+.wrap {
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .employee-list-section {
@@ -112,6 +111,22 @@ header {
     font-size: 36pt;
 }
 
+.right-align {
+    text-align: right;
+}
+
+.deleteButton {
+    padding: 0;
+}
+
 .highlight {
     background-color: var(--overbudget);
+}
+
+#monthly-cost-section {
+    min-width: 250px;
+    max-height: 220px;
+}
+
+#add-employee-section {
 }

@@ -50,7 +50,7 @@ function updateEmployeeList() {
             <td>${employees[i].lastName}</td>
             <td>${employees[i].id}</td>
             <td>${employees[i].title}</td>
-            <td>${Number(employees[i].annualSalary).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</td>
+            <td class=right-align>${Number(employees[i].annualSalary).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</td>
             <td style="text-align: center"><button class="deleteButton" data-index="${[i]}"><i class="fas fa-user-minus"></i> Remove</button></td>
         </tr>
         `);
@@ -63,7 +63,6 @@ function updateMonthlyCost() {
 }
 
 function calculateMonthlyCost() {
-    //TODO: Formatting and rounding off to two digits
     let annualCost = employees.reduce((prev, current) => prev += Number(current.annualSalary), 0);
     return annualCost / 12;
 }
