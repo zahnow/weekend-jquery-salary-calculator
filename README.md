@@ -1,9 +1,8 @@
-# Project Name
+# Salary Calculator
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+This project allows a user to quickly add employees and their annual salaries to determine monthly costs.
 
 ## Description
 
 Your project description goes here. What problem did you solve? How did you solve it?
 
-Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).

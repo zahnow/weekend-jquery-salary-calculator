@@ -31,11 +31,12 @@ function addEmployee() {
 
 
 function removeEmployee(event) {
-    console.log('delete button clicked');
-    console.log($(event.target).attr('data-index'));    //THIS WORKS
+    // Delete employee from the array
     employees.splice($(event.target).attr('data-index'), 1)
+    
+    // Remove the row from the table
     $(event.target).closest('tr').remove();
-    //Need to remove from array
+
     updateMonthlyCost();
 }
 
@@ -49,28 +50,28 @@ function updateEmployeeList() {
             <td>${employees[i].lastName}</td>
             <td>${employees[i].id}</td>
             <td>${employees[i].title}</td>
-            <td>${employees[i].annualSalary}</td>
-            <td><button class="deleteButton" data-index="${[i]}">Delete</button></td>
+            <td>${Number(employees[i].annualSalary).toLocaleString('en-US', {style: 'currency', currency: 'USD'})}</td>
+            <td style="text-align: center"><button class="deleteButton" data-index="${[i]}"><i class="fas fa-user-minus"></i> Remove</button></td>
         </tr>
         `);
     }
 }
 
 function updateMonthlyCost() {
-    $('#monthly-cost').text(calculateMonthlyCost());
-    checkMonthlyLimit();
+    $('#monthly-cost').text(calculateMonthlyCost().toLocaleString('en-US', {style: 'currency', currency: 'USD'}));
+    updateCostStyle();
 }
 
 function calculateMonthlyCost() {
-    TODO: Formatting and rounding off to two digits
+    //TODO: Formatting and rounding off to two digits
     let annualCost = employees.reduce((prev, current) => prev += Number(current.annualSalary), 0);
     return annualCost / 12;
 }
 
-function checkMonthlyLimit() {
+function updateCostStyle() {
     if(calculateMonthlyCost() > monthlyLimit) {
-        $('#monthly-cost').addClass('highlight');
+        $('#monthly-cost-section').addClass('highlight');
     } else {
-        $('#monthly-cost').removeClass('highlight');
+        $('#monthly-cost-section').removeClass('highlight');
     }
 }

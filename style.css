@@ -1,25 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    /* Palette mostly from https://colorhunt.co/palette/fef5edd3e4cdadc2a999a799 */
+    --primary-light: #D3E4CD;
+    --primary: #ADC2A9;
+    --primary-dark: #99A799;
+    --background: #99A799;
+    --contrast: #FEF5ED;
+    --dark-grey: #404040;
+    --overbudget: #df9fb0;
+    --border-style: 2px solid var(--dark-grey);
+}
+
 body {
-    font-family: sans-serif;
-    background-color: pink;
+    font-family: 'Roboto', sans-serif;
+    width: 80%;
+    padding-left: 10%;
+    background-color: var(--background);
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    font-family: 'Roboto Mono', monospace;
+    border: var(--border-style);
+    padding: .5rem;
+    margin: .5rem;
+}
+
+input:focus {
+    outline-color: var(--primary-dark);
+}
+
+button {
+    cursor: pointer;
+    font-family: 'Roboto Mono', monospace;
+    border: var(--border-style);
+    background-color: var(--primary);
+    width: 120px;
+    padding: .5rem;
+    margin: .5rem;
+}
+
+button:focus {
+    outline-color: var(--primary-dark);
+}
+
+button:hover {
+    background-color: var(--primary-light);
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: var(--border-style);
 }
 
 table{ 
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
-}
-
-tbody tr:nth-child(odd) {
-    background-color: rgba(255, 255, 255, 1);
+    font-family: 'Roboto Mono', monospace;
 }
 
 thead {
-    background-color: rgba(30, 30, 30, .12);
+    background-color: var(--primary);
+}
+
+th {
+    padding: .5em;
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--primary-light);
+}
+
+.deleteButton {
+    padding: 0;
+}
+
+header {
+    text-align: center;
+}
+
+.section {
+    background-color: white;
+    border: var(--border-style);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.flex-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.employee-list-section {
+    border: var(--border-style);
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.summary-section {
+    margin-top: 1rem;
+    border: var(--border-style);
+    text-align: center;
+}
+
+.section p {
+    text-align: center;
+    font-size: 36pt;
 }
 
 .highlight {
-    background-color: red;
+    background-color: var(--overbudget);
 }
